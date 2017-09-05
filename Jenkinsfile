@@ -33,6 +33,14 @@ pipeline {
 					def newApp = docker.build "todo-web:${env.BUILD_NUMBER}"
 				}
 			}
+			post {
+				success {
+					withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: 'gogs-gituser', usernameVariable: 'GIT_USERNAME', passwordVariable: 'GIT_PASSWORD']]) {
+						sh("git tag -a build-${env.BUILD_NUMBER} -m 'Jenkins build success'")
+						sh("git push http://${env.GIT_USERNAME}:${env.GIT_PASSWORD}@${DOCKER_GATEWAY_IP}:3000/gituser/todo-web.git --tags")
+					}
+				}
+			}
 		}
 	}
 
