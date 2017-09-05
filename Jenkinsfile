@@ -25,6 +25,15 @@ pipeline {
 				sh 'ng build --prod --aot'
 			}
 		}
+
+		stage('Build Image') {
+			steps {
+				echo 'Creating docker image'
+				script {
+					def newApp = docker.build "todo-web:${env.BUILD_NUMBER}"
+				}
+			}
+		}
 	}
 
 	// The options directive is for configuration that applies to the whole job.
