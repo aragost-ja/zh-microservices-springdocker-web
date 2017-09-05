@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+<svg xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://www.w3.org/2000/svg" height="6.0596mm" width="6.3761mm" version="1.1" xmlns:cc="http://creativecommons.org/ns#" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 6.3761029 6.0595846" xmlns:dc="http://purl.org/dc/elements/1.1/">
+ <defs>
+  <linearGradient id="linearGradient4539" y2="159.27" gradientUnits="userSpaceOnUse" x2="76.982" y1="161.12" x1="72.276">
+   <stop stop-color="#63dd00" offset="0"/>
+   <stop stop-color="#fff" offset="1"/>
+  </linearGradient>
+ </defs>
+ <metadata>
+  <rdf:RDF>
+   <cc:Work rdf:about="">
+    <dc:format>image/svg+xml</dc:format>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:title/>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <g transform="translate(-70.689 -156.71)">
+  <text stroke-linejoin="round" style="word-spacing:0px;letter-spacing:0px" font-family="sans-serif" xml:space="preserve" font-size="9.2604px" line-height="125%" stroke="#358c16" y="163.89978" x="70.02462" stroke-width=".1" fill="url(#linearGradient4539)"><tspan stroke-linejoin="round" stroke="#358c16" y="163.89978" x="70.02462" stroke-width=".1" fill="url(#linearGradient4539)"></tspan></text>
+ </g>
+</svg>

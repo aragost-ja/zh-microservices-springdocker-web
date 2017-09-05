@@ -1,0 +1,28 @@
+:host {
+  display: flex;
+  flex: 1 1 auto;
+	margin-left: auto;
+	align-items: center;
+}
+
+table.memberList {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.memberList thead {
+  font-weight: bold;
+}
+
+.memberList td {
+  padding: 0.4rem 0rem;
+}
+
+.memberList tbody tr:hover {
+  background-color: #f0f0f0;
+  cursor: pointer;
+}
+
+.done {
+  text-decoration: line-through;
+}
