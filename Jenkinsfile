@@ -42,6 +42,24 @@ pipeline {
 				}
 			}
 		}
+
+		stage('Staging') {
+			steps {
+				echo 'Publishing to staging environment'
+				sh 'docker stop todo-web-staging || true'  // Stop current container, ignore if fails
+				sh 'docker rm todo-web-staging || true'  // remove current container, ignore if fails
+				sh "docker run -d --name todo-web-staging -p 8881:80 --link todo-svc-staging:todo-svc todo-web:${env.BUILD_NUMBER}"
+			}
+		}
+
+		stage('Production') {
+			steps {
+				echo 'Publishing to production environment'
+				sh 'docker stop todo-web-prod || true'  // Stop current container, ignore if fails
+				sh 'docker rm todo-web-prod || true'  // remove current container, ignore if fails
+				sh "docker run -d --name todo-web-prod -p 8891:80 --link todo-svc-prod:todo-svc todo-web:${env.BUILD_NUMBER}"
+			}
+		}
 	}
 
 	// The options directive is for configuration that applies to the whole job.
