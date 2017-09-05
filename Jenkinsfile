@@ -76,6 +76,14 @@ pipeline {
 		}
 	}
 
+	post {
+		// Always runs. And it runs before any of the other post conditions.
+		always {
+			// Remove old obsolete Docker images (filtered on a label in the Dockerfile)
+			sh 'docker image prune -a -f  --filter "label=com.aragost.service=todo-web"'
+		}
+	}
+
 	// The options directive is for configuration that applies to the whole job.
 	options {
 		// Keep 10 last builds only
