@@ -51,4 +51,11 @@ export class TodoService {
       .map(response => response.json() as Todo);
   }
 
+  update(todo: Todo): Observable<Todo> {
+    const url = `${this.serviceUrl}/${todo.id}`;
+    return this.http
+      .put(url, JSON.stringify(todo), {headers: this.headers})
+      .map(response => response.json() as Todo);
+  }
+
 }

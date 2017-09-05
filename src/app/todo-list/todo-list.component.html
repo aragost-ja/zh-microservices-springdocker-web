@@ -1,3 +1,33 @@
+<div class="popupOuter" [hidden]="!displayEditTodo">
+<div class="popupInner">
+<div id="editTodoDialog" class="popupWindow" (click)="$event.stopPropagation();">
+  <div class="popupTitle">Edit Todo</div>
+  <div>
+    <form>
+      <table>
+        <tr>
+          <td class="formLabel">Title</td>
+          <td><input type="text" name="title" [(ngModel)]="selectedTodo.title"></td>
+        </tr>
+        <tr>
+          <td class="formLabel">Description</td>
+          <td><textarea cols="60" rows="20" name="description" [(ngModel)]="selectedTodo.description"></textarea></td>
+        </tr>
+				<tr>
+          <td class="formLabel">Completed</td>
+          <td><input type="checkbox" name="completed" [(ngModel)]="selectedTodo.completed"></td>
+        </tr>
+      </table>
+    </form>
+  </div>
+  <div class="popupButtons">
+    <button (click)="updateSelectedTodo()">Save</button>
+    <button (click)="toggleDisplayEditTodo()">Cancel</button>
+  </div>
+</div>
+</div>
+</div>
+
 <table class="memberList" *ngIf="todos | async as todoList; else loading">
 	<thead>
 		<tr>
@@ -6,7 +36,7 @@
 		</tr>
 	</thead>
 	<tbody>
-		<tr *ngFor="let todo of todoList">
+		<tr *ngFor="let todo of todoList" (click)="editTodo(todo)">
 			<td [ngClass]="{'done': todo.completed}">{{todo.title}}</td>
 			<td><img *ngIf="todo.completed" src="assets/img/checkmark.png"></td>
 		</tr>
