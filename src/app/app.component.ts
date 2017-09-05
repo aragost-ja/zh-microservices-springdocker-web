@@ -9,6 +9,8 @@ import { TodoService } from './todo.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
+  displayAddTodo: boolean = false;
+  newTodo: Todo = new Todo();
 
   numPendingTodos: number;
   numCompletedTodos: number;
@@ -29,6 +31,24 @@ export class AppComponent implements OnInit {
           }
         }
       }
+    );
+  }
+
+  showAddTodo(): void {
+    this.displayAddTodo = !this.displayAddTodo;
+    console.log("Adding new Todo");
+  }
+
+  saveTodo(): void {
+    console.log("Adding todo " + this.newTodo.title);
+    this.todoService.create(this.newTodo).subscribe(
+      createdTodo => {
+        console.log("Created new todo with id " + createdTodo.id);
+        this.displayAddTodo = false;
+        this.newTodo = new Todo();
+        this.todoService.refreshTodos();
+      },
+      error => console.log("Error" + error)
     );
   }
 

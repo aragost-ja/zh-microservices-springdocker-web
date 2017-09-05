@@ -43,4 +43,12 @@ export class TodoService {
       );
   }
 
+  create(todo: Todo): Observable<Todo> {
+    const url = `${this.serviceUrl}`;
+
+    return this.http
+      .post(url, JSON.stringify(todo), {headers: this.headers})
+      .map(response => response.json() as Todo);
+  }
+
 }

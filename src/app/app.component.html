@@ -1,6 +1,32 @@
+<div class="popupOuter" [hidden]="!displayAddTodo">
+<div class="popupInner">
+<div id="addTodoDialog" class="popupWindow" (click)="$event.stopPropagation();">
+  <div class="popupTitle">Add new Todo</div>
+  <div>
+    <form>
+      <table>
+        <tr>
+          <td class="formLabel">Title</td>
+          <td><input type="text" name="title" [(ngModel)]="newTodo.title"></td>
+        </tr>
+        <tr>
+          <td class="formLabel">Description</td>
+          <td><textarea cols="60" rows="20" name="description" [(ngModel)]="newTodo.description"></textarea></td>
+        </tr>
+      </table>
+    </form>
+  </div>
+  <div class="popupButtons">
+    <button (click)="saveTodo()">Save</button>
+    <button (click)="showAddTodo()">Cancel</button>
+  </div>
+</div>
+</div>
+</div>
 <div class="titlebar">
   <h1>My ToDo list</h1>
   <div class="buttonbar">
+  <button class="NewTodo" type="button" (click)="showAddTodo()">+</button>
   </div>
 </div>
 <div class="maincontent">
